@@ -6,11 +6,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $senha = $_POST['senha'];
 
     try {
-        /
         $sql = "SELECT * FROM aluno WHERE cpf = ? AND senha = ?";
         $stmt = $pdo->prepare($sql);
         
-    
         $stmt->execute([$cpf, $senha]);
         
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
